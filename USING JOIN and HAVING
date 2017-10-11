@@ -1,0 +1,23 @@
+#
+# Find the one food that is eaten by only one animal.
+#
+# The animals table has columns (name, species, birthdate) for each individual.
+# The diet table has columns (species, food) for each food that a species eats.
+#
+
+QUERY = '''
+SELECT food, count(*) as num
+FROM animals, diet
+WHERE animals.species = diet.species
+GROUP BY food
+HAVING num=1
+'''
+Query that shows the species and name of the animal that eats that one food
+
+QUERY = '''
+SELECT food, count(*) as num, diet.species, animals.name
+FROM animals, diet
+WHERE animals.species = diet.species
+GROUP BY food
+HAVING num=1
+'''

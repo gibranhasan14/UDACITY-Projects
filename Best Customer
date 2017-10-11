@@ -1,0 +1,15 @@
+##  The customer who has spent the most money will be declared your best customer.
+##  They definitely deserve an email thanking them for their patronage :)
+
+##  Build a query that returns the person who has the highest sum of all invoices,
+##  along with their email, first name, and last name.
+
+
+QUERY ='''
+SELECT Customer.Email, Customer.FirstName, Customer.LastName, sum(Invoice.Total)
+FROM Customer, Invoice
+WHERE Customer.CustomerId=Invoice.CustomerId
+GROUP BY Email
+ORDER BY Invoice.Total DESC
+LIMIT 1;
+'''

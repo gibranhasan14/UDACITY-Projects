@@ -1,0 +1,17 @@
+##  Now that we know that our customers love rock music, we can decide which musicians to
+##  invite to play at the concert.
+
+##  Let's invite the artists who have written the most rock music in our dataset.
+##  Write a query that returns the Artist name and total track count of the top 10 rock bands.
+
+
+QUERY ='''
+SELECT Artist.Name, COUNT(Genre.Name)
+FROM Genre, Track, Album, Artist
+WHERE Genre.GenreId=Track.GenreId
+AND Track.AlbumId=Album.AlbumId AND Album.ArtistId=Artist.ArtistId
+AND Genre.Name='Rock'
+GROUP BY Artist.Name
+ORDER BY COUNT(Genre.Name) DESC
+LIMIT 10;
+'''
