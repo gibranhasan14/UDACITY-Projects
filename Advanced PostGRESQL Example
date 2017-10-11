@@ -1,0 +1,22 @@
+Timestamps and Extract Function
+
+SELECT sum(Amount), EXTRACT(month from payment_date) AS Month
+FROM Payment
+GROUP BY Month
+ORDER BY sum(Amount) DESC
+LIMIT 1;
+This Returns highest payment amount for that month
+
+MATH
+SELECT round(AVG(amount),2)
+FROM Payment
+
+STRING FUNCTIONS
+SELECT first_name II last_name
+FROM Customer
+
+SUBQUERY
+SELECT title,rental_rate
+FROM Film
+WHERE rental_rate>(SELECT AVG (rental_rate)FROM Film;
+
